@@ -61,18 +61,19 @@ const Welcome = () => {
   };
 
   const continueToNext = async () => {
-    const datas = {
-      name: 'sahil',
-      email: 'sahil@gmail.com',
-      password: '1122',
-    };
-    const datas2 = {
-      age: 20,
-      city:"peshawer",
-      name:"sahil king" // the name of datas will be changed from sahil to sahil king during merging
-    };
+    await AsyncStorage.setItem('USER', 'active');
+    // const datas = {
+    //   name: 'sahil',
+    //   email: 'sahil@gmail.com',
+    //   password: '1122',
+    // };
+    // const datas2 = {
+    //   age: 20,
+    //   city:"peshawer",
+    //   name:"sahil king" // the name of datas will be changed from sahil to sahil king during merging
+    // };
     // await AsyncStorage.setItem('USER', JSON.stringify(datas));
-    await AsyncStorage.mergeItem('USER', JSON.stringify(datas2)); // mergeItem means add datas2 into datas 
+    // await AsyncStorage.mergeItem('USER', JSON.stringify(datas2)); // mergeItem means add datas2 into datas
   };
 
   return (
@@ -164,7 +165,7 @@ export default Welcome;
 // we can store data in the form of string or json
 
 // === > asyncStorage methods
-// 1.setItem || set means to set the data  
+// 1.setItem || set means to set the data
 // 2.getItem || get means to get the data
 // 3.removeItem || remove means to remove the data
 // 4.clear || clear means to clear the data
