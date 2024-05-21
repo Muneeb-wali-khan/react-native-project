@@ -1,8 +1,18 @@
 import {View, Text, StyleSheet, TextInput, Image} from 'react-native';
 import {THEME_COLOR} from '../../utils/Colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useEffect} from 'react';
 
 const Login = () => {
+  const getDta = async () => {
+    const getDt = await AsyncStorage.getItem('name');
+    console.log(getDt);
+  };
+  useEffect(() => {
+    getDta();
+  }, []);
+
   return (
     <View style={styles.ParentContainer}>
       <View style={{alignItems: 'center', marginTop: 80}}>
@@ -11,8 +21,7 @@ const Login = () => {
           style={{width: '28%', height: '38%'}}
         />
       </View>
-      <View
-        style={styles.formContainer}>
+      <View style={styles.formContainer}>
         <View style={styles.mainContainer}>
           <Text style={styles.heading}>Login</Text>
           <View style={styles.inputContainer}>
@@ -27,7 +36,7 @@ const Login = () => {
               secureTextEntry={true}
             />
             <TouchableOpacity style={styles.ButtonVeiw}>
-                <Text style={styles.btnText}>Login</Text>
+              <Text style={styles.btnText}>Login</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -45,7 +54,7 @@ export const styles = StyleSheet.create({
   },
   mainContainer: {
     flex: 1,
-    width:"100%"
+    width: '100%',
   },
   heading: {
     fontSize: 25,
@@ -55,7 +64,7 @@ export const styles = StyleSheet.create({
     color: THEME_COLOR,
     fontWeight: '600',
   },
-  formContainer:{
+  formContainer: {
     height: '67%',
     width: '100%',
     backgroundColor: 'white',

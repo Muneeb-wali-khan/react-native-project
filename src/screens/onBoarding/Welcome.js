@@ -11,7 +11,8 @@ import {
 import React, {useRef, useState} from 'react';
 import {LIGHT, THEME_COLOR} from '../../utils/Colors';
 import {FlatList} from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const data = [
   {
@@ -42,9 +43,9 @@ const data = [
 ];
 
 const Welcome = () => {
-  const navigate = useNavigation()
+  const navigate = useNavigation();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const ref = useRef()
+  const ref = useRef();
 
   const handlePREV = () => {
     if (currentIndex > 0) {
@@ -53,10 +54,16 @@ const Welcome = () => {
     }
   };
   const handleNEXT = () => {
-      // we use ref.current to access the flat list scrollToIndex Property
-    if (currentIndex < data.length -1) {
+    // we use ref.current to access the flat list scrollToIndex Property
+    if (currentIndex < data.length - 1) {
       ref.current.scrollToIndex({animated: true, index: currentIndex + 1});
     }
+  };
+
+  const continueToNext = async () => {
+    const name = ['muneeb'];
+    await AsyncStorage.setItem('name', JSON.stringify(name));
+    console.log("saved");
   };
 
   return (
@@ -124,18 +131,28 @@ const Welcome = () => {
             </TouchableOpacity>
           )}
           {currentIndex == data.length - 1 && (
-            <TouchableOpacity onPress={()=> navigate.navigate("Login")} style={styles.NEXT_BTN}>
+            <TouchableOpacity
+              onPress={() => {
+                navigate.navigate('Login'), continueToNext();
+              }}
+              style={styles.NEXT_BTN}>
               <Text style={{color: LIGHT, fontSize: 18}}>Continue</Text>
             </TouchableOpacity>
           )}
         </View>
       </View>
-
     </SafeAreaView>
   );
 };
 
 export default Welcome;
+
+// ==> asyncStorage
+// in asyncStorage we store the data in the form of key value pair
+// key is the name of the data
+// value is the data itself
+// we can store multiple data in asyncStorage
+// we can store data in the form of string or json
 
 export const styles = StyleSheet.create({
   container: {
