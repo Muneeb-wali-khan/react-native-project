@@ -1,37 +1,33 @@
-import {View, Text, StyleSheet, TextInput} from 'react-native';
+import {View, Text, StyleSheet, TextInput, Image} from 'react-native';
 import {THEME_COLOR} from '../../utils/Colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const Login = () => {
   return (
     <View style={styles.ParentContainer}>
-      <View style={styles.mainContainer}>
-        <Text style={styles.heading}>Login</Text>
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="UserName"
-            maxLength={6}
-            autoFocus
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            keyboardType="email-address"
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Password"
-            secureTextEntry={true}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Mobile"
-            keyboardType="number-pad"
-          />
-          <View style={styles.ButtonVeiw}>
-            <TouchableOpacity>
-              <Text style={styles.btnText}>Login</Text>
+      <View style={{alignItems: 'center', marginTop: 80}}>
+        <Image
+          source={require('../../images/linkdin-logo.png')}
+          style={{width: '28%', height: '38%'}}
+        />
+      </View>
+      <View
+        style={styles.formContainer}>
+        <View style={styles.mainContainer}>
+          <Text style={styles.heading}>Login</Text>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+              keyboardType="email-address"
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Password"
+              secureTextEntry={true}
+            />
+            <TouchableOpacity style={styles.ButtonVeiw}>
+                <Text style={styles.btnText}>Login</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -48,20 +44,29 @@ export const styles = StyleSheet.create({
     backgroundColor: THEME_COLOR,
   },
   mainContainer: {
-    flex: 1 / 1.2,
-    justifyContent: 'center',
+    flex: 1,
+    width:"100%"
   },
   heading: {
     fontSize: 25,
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 60,
-    color: 'white',
-    fontWeight:"600"
+    color: THEME_COLOR,
+    fontWeight: '600',
+  },
+  formContainer:{
+    height: '67%',
+    width: '100%',
+    backgroundColor: 'white',
+    borderTopLeftRadius: 60,
+    borderTopRightRadius: 60,
+    position: 'absolute',
+    bottom: 0,
   },
   inputContainer: {
     width: '100%',
-    marginTop: 25,
+    marginTop: 20,
     marginBottom: 20,
     flexDirection: 'column',
     justifyContent: 'center',
@@ -72,21 +77,22 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     fontSize: 15,
     height: 55,
-    margin: 12,
+    margin: 6,
     paddingLeft: 15,
-    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: 'gray',
   },
   ButtonVeiw: {
-    width: '85%',
+    width: 371,
     borderRadius: 10,
     height: 55,
     margin: 12,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: "white",
+    backgroundColor: THEME_COLOR,
   },
   btnText: {
-    color: THEME_COLOR,
+    color: 'white',
     fontSize: 20,
     fontWeight: '600',
   },

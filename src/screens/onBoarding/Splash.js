@@ -17,7 +17,7 @@ const Splash = () => {
       {/* status bar is top layer where time,network,battery shows */}
       <StatusBar barStyle={'light-content'} backgroundColor={THEME_COLOR}/>
       <Image 
-        source={require("../../images/logo.png")}
+        source={require("../../images/linkdin-logo.png")}
         style={styles.logo}
       />
     </View>
