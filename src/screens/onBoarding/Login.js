@@ -6,7 +6,7 @@ import {useEffect} from 'react';
 
 const Login = () => {
   const getDta = async () => {
-    const getDt = await AsyncStorage.getItem('name');
+    const getDt = await AsyncStorage.getItem('USER');
     console.log(getDt);
   };
   useEffect(() => {
