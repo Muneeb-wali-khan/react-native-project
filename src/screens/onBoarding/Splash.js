@@ -16,10 +16,11 @@ const Splash = () => {
   // if user is loged in then navigate to login screen else navigate to welcome screen
   const check_User_LogedIn = async()=>{
     const getUser = await AsyncStorage.getItem("USER")
-    if(getUser != null){
-      navigate.navigate('Login')
-    }else{
+    console.log("getuser",getUser);
+    if(getUser == null){
       navigate.navigate('Welcome')
+    }else{
+      navigate.navigate('Products')
     }
   }
 

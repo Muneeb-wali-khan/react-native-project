@@ -2,16 +2,30 @@ import {View, Text, StyleSheet, TextInput, Image} from 'react-native';
 import {THEME_COLOR} from '../../utils/Colors';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
 
 const Login = () => {
-  const getDta = async () => {
-    const getDt = await AsyncStorage.getItem('USER');
-    console.log(getDt);
+  const navigate = useNavigation();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+
+
+  const handleLogin = () => {
+    const emails = ['xyz@gmail.com', 'munaa@gmail.com'];
+    const passwords = ['123', '456'];
+    const user = {
+      email: email,
+      password: password,
+    };
+    if (emails.includes(email.toLowerCase()) && passwords.includes(password)) {
+      AsyncStorage.setItem('USER', JSON.stringify(user));
+      navigate.navigate('Products');
+    } else {
+      alert('Invalid Credentials');
+    }
   };
-  useEffect(() => {
-    getDta();
-  }, []);
 
   return (
     <View style={styles.ParentContainer}>
@@ -29,13 +43,15 @@ const Login = () => {
               style={styles.input}
               placeholder="Email"
               keyboardType="email-address"
+              onChangeText={text => setEmail(text)}
             />
             <TextInput
               style={styles.input}
               placeholder="Password"
               secureTextEntry={true}
+              onChangeText={text => setPassword(text)}
             />
-            <TouchableOpacity style={styles.ButtonVeiw}>
+            <TouchableOpacity onPress={handleLogin} style={styles.ButtonVeiw}>
               <Text style={styles.btnText}>Login</Text>
             </TouchableOpacity>
           </View>

@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import Splash from '../screens/onBoarding/Splash';
 import Login from '../screens/onBoarding/Login';
 import Welcome from '../screens/onBoarding/Welcome';
+import Products from '../screens/home/Products';
 const STACK = createStackNavigator();
 
 const MainNavigator = () => {
@@ -24,6 +25,11 @@ const MainNavigator = () => {
         <STACK.Screen
           name="Welcome"
           component={Welcome}
+          options={{headerShown: false}}
+        />
+        <STACK.Screen
+          name="Products"
+          component={Products}
           options={{headerShown: false}}
         />
       </STACK.Navigator>
