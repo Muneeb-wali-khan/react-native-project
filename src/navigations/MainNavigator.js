@@ -6,6 +6,7 @@ import Splash from '../screens/onBoarding/Splash';
 import Login from '../screens/onBoarding/Login';
 import Welcome from '../screens/onBoarding/Welcome';
 import Products from '../screens/home/Products';
+import Cart from '../screens/home/Cart';
 const STACK = createStackNavigator();
 
 const MainNavigator = () => {
@@ -31,6 +32,11 @@ const MainNavigator = () => {
           name="Products"
           component={Products}
           options={{headerShown: false}}
+        />
+        <STACK.Screen
+          name="Cart"
+          component={Cart}
+          // options={{headerShown: false}}
         />
       </STACK.Navigator>
     </NavigationContainer>

@@ -1,20 +1,17 @@
-import {View, Text, FlatList, Image} from 'react-native';
-import React, {useEffect} from 'react';
+import {View, Text, FlatList, TouchableOpacity, Image} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import {useState} from 'react';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
 
-const Products = () => {
+const Cart = () => {
   const [products, setProducts] = useState([]);
-  const nav = useNavigation();
 
   useEffect(() => {
     fetchProducts();
   }, []);
 
   const fetchProducts = async () => {
-    const data = await axios.get('https://fakestoreapi.com/products')
+    const data = await axios
+      .get('https://fakestoreapi.com/products')
       .then(res => {
         setProducts(res.data);
       })
@@ -24,29 +21,7 @@ const Products = () => {
   };
 
   return (
-    <View style={{flex: 1}}>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          paddingRight: 10,
-          paddingLeft: 10,
-        }}>
-        <Text style={{fontSize: 20, fontWeight: '600', margin: 10}}>
-          Products
-        </Text>
-        {/* cart */}
-        <Text onPress={()=> nav.navigate("Cart")}
-          style={{
-            fontSize: 16,
-            fontWeight: '600',
-            margin: 10,
-            textDecorationLine: 'underline',
-          }}>
-          Cart Items ( 0 ) {' >'}
-        </Text>
-      </View>
+    <View style={{flex: 1, marginTop: 10}}>
       <FlatList
         data={products}
         renderItem={prod => {
@@ -79,16 +54,39 @@ const Products = () => {
                       : prod.item.title}
                   </Text>
                 </View>
-                <View style={{padding: 5}}>
+                <View style={{padding: 5, flexDirection: 'row'}}>
                   <TouchableOpacity
                     style={{
-                      padding: 10,
+                      padding: 5,
                       backgroundColor: 'blue',
                       borderRadius: 10,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      height: 33,
+                      width: 33,
                     }}>
-                    <Text style={{color: 'white', fontWeight: '500'}}>
-                      Add to Cart
-                    </Text>
+                    <Text style={{color: 'white', fontWeight: '500',fontSize:16}}>-</Text>
+                  </TouchableOpacity>
+                  <Text
+                    style={{
+                      padding: 5,
+                      marginLeft: 5,
+                      marginRight: 5,
+                      fontWeight: '900',
+                    }}>
+                    1
+                  </Text>
+                  <TouchableOpacity
+                    style={{
+                      padding: 5,
+                      backgroundColor: 'blue',
+                      borderRadius: 10,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      height: 33,
+                      width: 33,
+                    }}>
+                    <Text style={{color: 'white', fontWeight: '500',fontSize:16}}>+</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -100,4 +98,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Cart;
