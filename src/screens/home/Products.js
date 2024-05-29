@@ -1,11 +1,15 @@
 import React from 'react';
-import { View, Text, FlatList, Image } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
-import { useGetProductsQuery } from '../../store/features/ProductSlice';
+import {View, Text, FlatList, Image, Alert} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
+import {useGetProductsQuery} from '../../store/features/ProductSlice';
+import {useDispatch, useSelector} from 'react-redux';
+import {addItem} from '../../store/features/CartSlice';
 
 const Products = () => {
-  const { data: products, isLoading,isError } = useGetProductsQuery();
+  const dispatch = useDispatch();
+  const {data: products, isLoading, isError} = useGetProductsQuery();
+  const {items} = useSelector(state => state.cart);
   const nav = useNavigation();
 
   if (isLoading) {
@@ -16,8 +20,12 @@ const Products = () => {
     return <Text>Error loading products</Text>;
   }
 
+  const handleAddtoCart = (item) => {
+    dispatch(addItem(item));
+  };
+
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <View
         style={{
           flexDirection: 'row',
@@ -25,28 +33,26 @@ const Products = () => {
           alignItems: 'center',
           paddingRight: 10,
           paddingLeft: 10,
-        }}
-      >
-        <Text style={{ fontSize: 20, fontWeight: '600', margin: 10 }}>
+        }}>
+        <Text style={{fontSize: 20, fontWeight: '600', margin: 10}}>
           Products
         </Text>
         {/* cart */}
         <Text
-          onPress={() => nav.navigate("Cart")}
+          onPress={() => nav.navigate('Cart')}
           style={{
             fontSize: 16,
             fontWeight: '600',
             margin: 10,
             textDecorationLine: 'underline',
-          }}
-        >
-          Cart Items ( 0 ) {' >'}
+          }}>
+          Cart Items ( {items ? items.length : 0} ) {' >'}
         </Text>
       </View>
       <FlatList
         data={products}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
+        keyExtractor={item => item.id.toString()}
+        renderItem={({item}) => (
           <View>
             <View
               style={{
@@ -58,34 +64,33 @@ const Products = () => {
                 padding: 10,
                 justifyContent: 'space-between',
                 borderRadius: 10,
-              }}
-            >
-              <View style={{ flexDirection: 'row' }}>
+              }}>
+              <View style={{flexDirection: 'row'}}>
                 <Image
-                  source={{ uri: item.image }}
-                  style={{ width: 60, height: 60, borderRadius: 10 }}
+                  source={{uri: item.image}}
+                  style={{width: 60, height: 60, borderRadius: 10}}
                 />
                 <Text
                   style={{
                     fontWeight: '600',
                     fontSize: 15,
                     padding: 10,
-                  }}
-                >
+                  }}>
                   {item.title.length > 20
                     ? item.title.slice(0, 25) + '...'
                     : item.title}
                 </Text>
               </View>
-              <View style={{ padding: 5 }}>
+              <View style={{padding: 5}}>
                 <TouchableOpacity
                   style={{
                     padding: 10,
                     backgroundColor: 'blue',
                     borderRadius: 10,
-                  }}
-                >
-                  <Text style={{ color: 'white', fontWeight: '500' }}>
+                  }}>
+                  <Text
+                    onPress={() => handleAddtoCart(item)}
+                    style={{color: 'white', fontWeight: '500'}}>
                     Add to Cart
                   </Text>
                 </TouchableOpacity>

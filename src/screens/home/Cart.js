@@ -1,29 +1,13 @@
 import {View, Text, FlatList, TouchableOpacity, Image} from 'react-native';
-import React, {useEffect, useState} from 'react';
-import axios from 'axios';
+import {useSelector} from 'react-redux';
 
 const Cart = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  const fetchProducts = async () => {
-    const data = await axios
-      .get('https://fakestoreapi.com/products')
-      .then(res => {
-        setProducts(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+  const {items} = useSelector(state => state.cart);
 
   return (
     <View style={{flex: 1, marginTop: 10}}>
       <FlatList
-        data={products}
+        data={items}
         renderItem={prod => {
           return (
             <View>
@@ -65,7 +49,10 @@ const Cart = () => {
                       height: 33,
                       width: 33,
                     }}>
-                    <Text style={{color: 'white', fontWeight: '500',fontSize:16}}>-</Text>
+                    <Text
+                      style={{color: 'white', fontWeight: '500', fontSize: 16}}>
+                      -
+                    </Text>
                   </TouchableOpacity>
                   <Text
                     style={{
@@ -86,7 +73,10 @@ const Cart = () => {
                       height: 33,
                       width: 33,
                     }}>
-                    <Text style={{color: 'white', fontWeight: '500',fontSize:16}}>+</Text>
+                    <Text
+                      style={{color: 'white', fontWeight: '500', fontSize: 16}}>
+                      +
+                    </Text>
                   </TouchableOpacity>
                 </View>
               </View>
