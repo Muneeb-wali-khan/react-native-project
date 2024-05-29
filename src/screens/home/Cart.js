@@ -1,15 +1,17 @@
 import {View, Text, FlatList, TouchableOpacity, Image} from 'react-native';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {decrement, increment} from '../../store/features/CartSlice';
 
 const Cart = () => {
+  const dispatch = useDispatch();
   const {items} = useSelector(state => state.cart);
-console.log(items);
-  const handleDecrease = ()=>{
 
-  }
-  const handleIncrease = ()=>{
-    
-  }
+  const handleDecrease = item => {
+    dispatch(increment(item));
+  };
+  const handleIncrease = item => {
+    dispatch(decrement(item));
+  };
   return (
     <View style={{flex: 1, marginTop: 10}}>
       <FlatList
@@ -46,7 +48,7 @@ console.log(items);
                 </View>
                 <View style={{padding: 5, flexDirection: 'row'}}>
                   <TouchableOpacity
-                  onPress={handleIncrease}
+                    onPress={() => handleIncrease(prod.item)}
                     style={{
                       padding: 5,
                       backgroundColor: 'blue',
@@ -71,7 +73,7 @@ console.log(items);
                     {prod.item.qty}
                   </Text>
                   <TouchableOpacity
-                  onPress={handleDecrease}
+                    onPress={() => handleDecrease(prod.item)}
                     style={{
                       padding: 5,
                       backgroundColor: 'blue',
