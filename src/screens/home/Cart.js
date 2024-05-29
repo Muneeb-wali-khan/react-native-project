@@ -4,6 +4,12 @@ import {useSelector} from 'react-redux';
 const Cart = () => {
   const {items} = useSelector(state => state.cart);
 
+  const handleDecrease = ()=>{
+
+  }
+  const handleIncrease = ()=>{
+    
+  }
   return (
     <View style={{flex: 1, marginTop: 10}}>
       <FlatList
@@ -40,6 +46,7 @@ const Cart = () => {
                 </View>
                 <View style={{padding: 5, flexDirection: 'row'}}>
                   <TouchableOpacity
+                  onPress={handleIncrease}
                     style={{
                       padding: 5,
                       backgroundColor: 'blue',
@@ -64,6 +71,7 @@ const Cart = () => {
                     1
                   </Text>
                   <TouchableOpacity
+                  onPress={handleDecrease}
                     style={{
                       padding: 5,
                       backgroundColor: 'blue',
