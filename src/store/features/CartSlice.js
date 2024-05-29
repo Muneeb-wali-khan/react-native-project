@@ -15,9 +15,7 @@ export const cartSlice = createSlice({
         existingItem.qty += 1;
       }
     },
-    removeItem: (state, action) => {
-      state.items.pop(action.payload);
-    },
+
     clearCart: state => {
       state.items = [];
     },
@@ -31,7 +29,11 @@ export const cartSlice = createSlice({
     decrement: (state, action) => {
       const item = action.payload;
       const findItem = state.items.find(i => i.id === item.id);
-      if (findItem) {
+
+      if (findItem.qty === 1) {
+        state.items = state.items.filter(i => i.id !== item.id);
+      }
+      else{
         findItem.qty -= 1;
       }
     },
