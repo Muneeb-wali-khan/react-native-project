@@ -14,10 +14,27 @@ export const cartSlice = createSlice({
       } else {
         existingItem.qty += 1;
       }
-      console.log(state.items);
+    //   console.log(state.items);
     },
     removeItem: (state, action) => {
       state.items.pop(action.payload);
+    },
+    clearCart: state => {
+      state.items = [];
+    },
+    increment: (state,action) => {
+        const item = action.payload
+        const findItem = state.items.find(i => i.id === item.id)
+        if(findItem){
+            findItem.qty += 1
+        }  
+    },
+    decrement: (state,action) => {
+        const item = action.payload
+        const findItem = state.items.find(i => i.id === item.id)
+        if(findItem){
+            findItem.qty -= 1
+        }  
     },
   },
 });

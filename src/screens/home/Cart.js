@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux';
 
 const Cart = () => {
   const {items} = useSelector(state => state.cart);
-
+console.log(items);
   const handleDecrease = ()=>{
 
   }
@@ -68,7 +68,7 @@ const Cart = () => {
                       marginRight: 5,
                       fontWeight: '900',
                     }}>
-                    1
+                    {prod.item.qty}
                   </Text>
                   <TouchableOpacity
                   onPress={handleDecrease}
