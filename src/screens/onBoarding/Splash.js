@@ -20,7 +20,7 @@ const Splash = () => {
     if(getUser == null){
       navigate.navigate('Welcome')
     }else{
-      navigate.navigate('Products')
+      navigate.navigate('DrawerNavigator')
     }
   }
 

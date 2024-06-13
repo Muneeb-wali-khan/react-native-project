@@ -5,8 +5,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import Splash from '../screens/onBoarding/Splash';
 import Login from '../screens/onBoarding/Login';
 import Welcome from '../screens/onBoarding/Welcome';
-import Products from '../screens/home/Products';
-import Cart from '../screens/home/Cart';
+import Products from '../components/EcommerceDemo/Products';
+import Cart from '../components/EcommerceDemo/Cart';
+import Main from '../screens/home/Main';
+import DrawerNavigator from './DrawerNavigator';
 const STACK = createStackNavigator();
 
 const MainNavigator = () => {
@@ -29,6 +31,16 @@ const MainNavigator = () => {
           options={{headerShown: false}}
         />
         <STACK.Screen
+          name="Home"
+          component={Main}
+          options={{headerShown: false}}
+        />
+        <STACK.Screen
+          name="DrawerNavigator"
+          component={DrawerNavigator}
+          options={{headerShown: false}}
+        />
+        {/* <STACK.Screen
           name="Products"
           component={Products}
           options={{headerShown: false}}
@@ -37,7 +49,7 @@ const MainNavigator = () => {
           name="Cart"
           component={Cart}
           // options={{headerShown: false}}
-        />
+        /> */}
       </STACK.Navigator>
     </NavigationContainer>
   );

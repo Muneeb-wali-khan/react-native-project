@@ -21,7 +21,7 @@ const Login = () => {
     };
     if (emails.includes(email.toLowerCase()) && passwords.includes(password)) {
       AsyncStorage.setItem('USER', JSON.stringify(user));
-      navigate.navigate('Products');
+      navigate.navigate('Home');
     } else {
       alert('Invalid Credentials');
     }
