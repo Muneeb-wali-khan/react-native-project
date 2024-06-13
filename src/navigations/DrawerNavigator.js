@@ -1,11 +1,14 @@
-import { View, Text } from 'react-native'
 import React from 'react'
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import Main from '../screens/home/Main'
+
+const Drawer = createDrawerNavigator()
 
 const DrawerNavigator = () => {
   return (
-    <View>
-      <Text>DrawerNavigator</Text>
-    </View>
+    <Drawer.Navigator>
+        <Drawer.Screen options={{headerShown:false}} name="Main" component={Main} />
+    </Drawer.Navigator>
   )
 }
 
