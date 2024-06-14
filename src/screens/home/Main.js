@@ -24,16 +24,18 @@ const Main = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={'white'} barStyle={'dark-content'} />
-      {selectedTab == 0 ? (
+      {selectedTab == 1 ? (
         <Home />
-      ) : selectedTab == 1 ? (
-        <Peoples />
       ) : selectedTab == 2 ? (
-        <Add />
+        <Peoples />
       ) : selectedTab == 3 ? (
+        <Add />
+      ) : selectedTab == 4 ? (
         <Notifications />
-      ) : (
+      ) : selectedTab == 5 ? (
         <Jobs />
+      ) : (
+        <Home />
       )}
       <View style={styles.bottomNav}>
         <TouchableOpacity

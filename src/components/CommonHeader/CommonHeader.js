@@ -10,16 +10,17 @@ import React from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 const {width, height} = Dimensions.get('window');
 
-const CommonHeader = () => {
+const CommonHeader = ({onclickLeft, onclickCenter, onclickRight}) => {
   return (
     <View style={styles.header}>
-      <TouchableOpacity>
+      <TouchableOpacity activeOpacity={0.5} onPress={onclickLeft}>
         <Image
           style={styles.user}
           source={require('../../images/user-avatar.256x256.png')}
         />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.searchBox}>
+
+      <TouchableOpacity onPress={onclickCenter} style={styles.searchBox}>
         <Image
           style={styles.searchIcon}
           source={require('../../images/search.256x256.png')}
@@ -29,7 +30,7 @@ const CommonHeader = () => {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onclickRight}>
         <Image
           style={styles.MsgBox}
           source={require('../../images/message-circle-outline.256x255.png')}
@@ -56,8 +57,8 @@ const styles = StyleSheet.create({
     alignItems:"center",
   },
   user: {
-    height: 40,
-    width: 40,
+    height: 37,
+    width: 37,
     borderRadius: 25,
   },
   searchBox: {
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     width: 25,
   },
   MsgBox: {
-    height: 39,
-    width: 39,
+    height: 35,
+    width: 35,
   },
 });

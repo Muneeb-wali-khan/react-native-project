@@ -1,11 +1,15 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import CommonHeader from '../../components/CommonHeader/CommonHeader';
+import { useNavigation } from '@react-navigation/native';
 
 const Home = () => {
+  const navigation = useNavigation()
   return (
     <View style={styles.container}>
-      <CommonHeader />
+      <CommonHeader onclickLeft={()=>{
+        navigation.openDrawer()
+      }}/>
     </View>
   );
 };
