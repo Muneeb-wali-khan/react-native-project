@@ -22,19 +22,22 @@ const Home = () => {
       />
 
       <FlatList
-        data={[0, 1]}
+        data={[1]}
         renderItem={({item, index}) => {
           return (
-            <View>
-              {index == 0 && (
+            <View style={{marginBottom:75}}>
+              <View>
                 <View style={styles.PostMAIN}>
                   {/* Top layer */}
                   <View style={styles.topLayerPost}>
                     <TouchableOpacity
-                      style={{alignItems: 'center', justifyContent: 'center'}}>
+                      style={{
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}>
                       <Image
-                      blurRadius={7}
-                        style={{height: 50, width: 50,borderRadius:40}}
+                        blurRadius={7}
+                        style={{height: 50, width: 50, borderRadius: 40}}
                         source={require('../../images/user-avatar.256x256.png')}
                       />
                     </TouchableOpacity>
@@ -67,7 +70,7 @@ const Home = () => {
                       style={{
                         flexDirection: 'row',
                         alignItems: 'center',
-                        paddingLeft: 14,
+                        paddingLeft: 5,
                       }}>
                       <Image
                         style={{height: 25, width: 25, marginRight: 10}}
@@ -83,36 +86,36 @@ const Home = () => {
                   {/* Bottom layer last post */}
                   <View style={styles.bottomLayerLastPost}>
                     <TouchableOpacity style={{flexDirection: 'column'}}>
-                      <View style={{alignItems:"center"}}>
+                      <View style={{alignItems: 'center'}}>
                         <Image
-                         style={styles.Icons}
+                          style={styles.Icons}
                           source={require('../../images/post/thumb-up.256x242.png')}
                         />
                         <Text style={styles.icontext}>Like</Text>
                       </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={{flexDirection: 'column'}}>
-                      <View style={{alignItems:"center"}}>
+                      <View style={{alignItems: 'center'}}>
                         <Image
-                         style={styles.Icons}
+                          style={styles.Icons}
                           source={require('../../images/post/message.256x256.png')}
                         />
                         <Text style={styles.icontext}>Comment</Text>
                       </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={{flexDirection: 'column'}}>
-                      <View style={{alignItems:"center"}}>
+                      <View style={{alignItems: 'center'}}>
                         <Image
-                         style={styles.Icons}
+                          style={styles.Icons}
                           source={require('../../images/post/repost.256x154.png')}
                         />
                         <Text style={styles.icontext}>Repost</Text>
                       </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={{flexDirection: 'column'}}>
-                      <View style={{alignItems:"center"}}>
+                      <View style={{alignItems: 'center'}}>
                         <Image
-                         style={styles.Icons}
+                          style={styles.Icons}
                           source={require('../../images/post/send-alt-filled.256x256.png')}
                         />
                         <Text style={styles.icontext}>Send</Text>
@@ -120,7 +123,201 @@ const Home = () => {
                     </TouchableOpacity>
                   </View>
                 </View>
-              )}
+
+                <View style={styles.PostMAIN}>
+                  {/* Top layer */}
+                  <View style={styles.topLayerPost}>
+                    <TouchableOpacity
+                      style={{
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}>
+                      <Image
+                        blurRadius={7}
+                        style={{height: 50, width: 50, borderRadius: 40}}
+                        source={require('../../images/user-avatar.256x256.png')}
+                      />
+                    </TouchableOpacity>
+                    <View style={{flexDirection: 'column', paddingLeft: 10}}>
+                      <Text style={{fontWeight: 900, fontSize: 20}}>
+                        Ali Ahmad{' '}
+                        <Text style={{fontSize: 13, fontWeight: '400'}}>
+                          .1st
+                        </Text>
+                      </Text>
+                      <Text style={{fontWeight: 600, fontSize: 13}}>
+                        Data Engineer | Devops Engineer Developer | Aws Solution
+                      </Text>
+                      <Text style={{fontSize: 14, fontWeight: '600'}}>
+                        23h.🌎
+                      </Text>
+                    </View>
+                  </View>
+                  {/* Middle layer */}
+                  <View style={styles.middleLayerPost}>
+                    <Image
+                      style={{height: 290, width: '90%'}}
+                      source={require('../../images/slide2.png')}
+                    />
+                  </View>
+                  {/* Bottom layer */}
+                  <View style={styles.bottomLayerPost}>
+                    {/* Reactions icons */}
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        paddingLeft: 5,
+                      }}>
+                      <Image
+                        style={{height: 25, width: 25, marginRight: 10}}
+                        source={require('../../images/post/heart-decoration.256x256.png')}
+                      />
+                      <Text>Nadeem khan and 12 others</Text>
+                    </View>
+                    <View>
+                      <Text>10 comments</Text>
+                    </View>
+                  </View>
+
+                  {/* Bottom layer last post */}
+                  <View style={styles.bottomLayerLastPost}>
+                    <TouchableOpacity style={{flexDirection: 'column'}}>
+                      <View style={{alignItems: 'center'}}>
+                        <Image
+                          style={styles.Icons}
+                          source={require('../../images/post/thumb-up.256x242.png')}
+                        />
+                        <Text style={styles.icontext}>Like</Text>
+                      </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{flexDirection: 'column'}}>
+                      <View style={{alignItems: 'center'}}>
+                        <Image
+                          style={styles.Icons}
+                          source={require('../../images/post/message.256x256.png')}
+                        />
+                        <Text style={styles.icontext}>Comment</Text>
+                      </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{flexDirection: 'column'}}>
+                      <View style={{alignItems: 'center'}}>
+                        <Image
+                          style={styles.Icons}
+                          source={require('../../images/post/repost.256x154.png')}
+                        />
+                        <Text style={styles.icontext}>Repost</Text>
+                      </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{flexDirection: 'column'}}>
+                      <View style={{alignItems: 'center'}}>
+                        <Image
+                          style={styles.Icons}
+                          source={require('../../images/post/send-alt-filled.256x256.png')}
+                        />
+                        <Text style={styles.icontext}>Send</Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+
+                <View style={styles.PostMAIN}>
+                  {/* Top layer */}
+                  <View style={styles.topLayerPost}>
+                    <TouchableOpacity
+                      style={{
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}>
+                      <Image
+                        blurRadius={7}
+                        style={{height: 50, width: 50, borderRadius: 40}}
+                        source={require('../../images/user-avatar.256x256.png')}
+                      />
+                    </TouchableOpacity>
+                    <View style={{flexDirection: 'column', paddingLeft: 10}}>
+                      <Text style={{fontWeight: 900, fontSize: 20}}>
+                        Wajid Khan{' '}
+                        <Text style={{fontSize: 13, fontWeight: '400'}}>
+                          .1st
+                        </Text>
+                      </Text>
+                      <Text style={{fontWeight: 600, fontSize: 13}}>
+                        Microsoft Engineer | data base Developer | Aws Solution
+                      </Text>
+                      <Text style={{fontSize: 14, fontWeight: '600'}}>
+                        23h.🌎
+                      </Text>
+                    </View>
+                  </View>
+                  {/* Middle layer */}
+                  <View style={styles.middleLayerPost}>
+                    <Image
+                      style={{height: 290, width: '90%'}}
+                      source={require('../../images/slide2.png')}
+                    />
+                  </View>
+                  {/* Bottom layer */}
+                  <View style={styles.bottomLayerPost}>
+                    {/* Reactions icons */}
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        paddingLeft: 5,
+                      }}>
+                      <Image
+                        style={{height: 25, width: 25, marginRight: 10}}
+                        source={require('../../images/post/heart-decoration.256x256.png')}
+                      />
+                      <Text>Waleed khan and 12 others</Text>
+                    </View>
+                    <View>
+                      <Text>11 comments</Text>
+                    </View>
+                  </View>
+
+                  {/* Bottom layer last post */}
+                  <View style={styles.bottomLayerLastPost}>
+                    <TouchableOpacity style={{flexDirection: 'column'}}>
+                      <View style={{alignItems: 'center'}}>
+                        <Image
+                          style={styles.Icons}
+                          source={require('../../images/post/thumb-up.256x242.png')}
+                        />
+                        <Text style={styles.icontext}>Like</Text>
+                      </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{flexDirection: 'column'}}>
+                      <View style={{alignItems: 'center'}}>
+                        <Image
+                          style={styles.Icons}
+                          source={require('../../images/post/message.256x256.png')}
+                        />
+                        <Text style={styles.icontext}>Comment</Text>
+                      </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{flexDirection: 'column'}}>
+                      <View style={{alignItems: 'center'}}>
+                        <Image
+                          style={styles.Icons}
+                          source={require('../../images/post/repost.256x154.png')}
+                        />
+                        <Text style={styles.icontext}>Repost</Text>
+                      </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{flexDirection: 'column'}}>
+                      <View style={{alignItems: 'center'}}>
+                        <Image
+                          style={styles.Icons}
+                          source={require('../../images/post/send-alt-filled.256x256.png')}
+                        />
+                        <Text style={styles.icontext}>Send</Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </View>
             </View>
           );
         }}
@@ -134,11 +331,11 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:"ghostwhite"
   },
   PostMAIN: {
     flexDirection: 'column',
     marginTop: 10,
-    height: 470,
     backgroundColor: 'white',
     borderWidth: 0.2,
   },
@@ -147,7 +344,8 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     flexDirection: 'row',
     padding: 10,
-    justifyContent: 'center',
+    paddingLeft:15,
+    justifyContent: 'flexstart',
   },
   middleLayerPost: {
     height: 250,
@@ -165,17 +363,21 @@ const styles = StyleSheet.create({
   },
   bottomLayerLastPost: {
     height: 60,
-    flexDirection:"row",
+    flexDirection: 'row',
     borderWidth: 0.2,
     width: Dimensions.get('window').width,
-    justifyContent: 'space-evenly',
-    alignItems:"center"
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingLeft: 50,
+    paddingRight: 50,
+    paddingTop: 13,
+    paddingBottom: 10,
   },
-  Icons:{
-    height:25,
-    width:25
+  Icons: {
+    height: 25,
+    width: 25,
   },
-  icontext:{
-    fontSize:16
-  }
+  icontext: {
+    fontSize: 14,
+  },
 });
