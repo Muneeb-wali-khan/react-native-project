@@ -33,7 +33,8 @@ const Home = () => {
                     <TouchableOpacity
                       style={{alignItems: 'center', justifyContent: 'center'}}>
                       <Image
-                        style={{height: 50, width: 50}}
+                      blurRadius={7}
+                        style={{height: 50, width: 50,borderRadius:40}}
                         source={require('../../images/user-avatar.256x256.png')}
                       />
                     </TouchableOpacity>
@@ -82,12 +83,39 @@ const Home = () => {
                   {/* Bottom layer last post */}
                   <View style={styles.bottomLayerLastPost}>
                     <TouchableOpacity style={{flexDirection: 'column'}}>
-                      <View style={{padding:5}}>
+                      <View style={{alignItems:"center"}}>
                         <Image
-                          style={{width: 20, height: 20}}
-                          source={require('../../images/post/hand-thumbs-up.203x256.png')}
+                         style={styles.Icons}
+                          source={require('../../images/post/thumb-up.256x242.png')}
                         />
-                        <Text>Like</Text>
+                        <Text style={styles.icontext}>Like</Text>
+                      </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{flexDirection: 'column'}}>
+                      <View style={{alignItems:"center"}}>
+                        <Image
+                         style={styles.Icons}
+                          source={require('../../images/post/message.256x256.png')}
+                        />
+                        <Text style={styles.icontext}>Comment</Text>
+                      </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{flexDirection: 'column'}}>
+                      <View style={{alignItems:"center"}}>
+                        <Image
+                         style={styles.Icons}
+                          source={require('../../images/post/repost.256x154.png')}
+                        />
+                        <Text style={styles.icontext}>Repost</Text>
+                      </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{flexDirection: 'column'}}>
+                      <View style={{alignItems:"center"}}>
+                        <Image
+                         style={styles.Icons}
+                          source={require('../../images/post/send-alt-filled.256x256.png')}
+                        />
+                        <Text style={styles.icontext}>Send</Text>
                       </View>
                     </TouchableOpacity>
                   </View>
@@ -110,7 +138,7 @@ const styles = StyleSheet.create({
   PostMAIN: {
     flexDirection: 'column',
     marginTop: 10,
-    height: 450,
+    height: 470,
     backgroundColor: 'white',
     borderWidth: 0.2,
   },
@@ -137,8 +165,17 @@ const styles = StyleSheet.create({
   },
   bottomLayerLastPost: {
     height: 60,
+    flexDirection:"row",
     borderWidth: 0.2,
     width: Dimensions.get('window').width,
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
+    alignItems:"center"
   },
+  Icons:{
+    height:25,
+    width:25
+  },
+  icontext:{
+    fontSize:16
+  }
 });
