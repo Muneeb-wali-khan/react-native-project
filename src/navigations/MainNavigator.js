@@ -1,4 +1,3 @@
-import {View, Text} from 'react-native';
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
@@ -40,7 +39,7 @@ const MainNavigator = () => {
           component={DrawerNavigator}
           options={{headerShown: false}}
         />
-        {/* <STACK.Screen
+        <STACK.Screen
           name="Products"
           component={Products}
           options={{headerShown: false}}
@@ -49,7 +48,7 @@ const MainNavigator = () => {
           name="Cart"
           component={Cart}
           // options={{headerShown: false}}
-        /> */}
+        />
       </STACK.Navigator>
     </NavigationContainer>
   );

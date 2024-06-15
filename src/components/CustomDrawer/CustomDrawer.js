@@ -1,10 +1,11 @@
 import {View, Text, StyleSheet, SafeAreaView, Image} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {useIsFocused} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const CustomDrawer = () => {
+  const nav = useNavigation()
   const isfocused = useIsFocused();
   const [data, setdata] = useState(null);
 
@@ -31,6 +32,15 @@ const CustomDrawer = () => {
       <Text style={styles.title}>
         {data && data !== null ? data.email : 'Error Occured !'}
       </Text>
+
+      {/* menu items screen */}
+      <View style={{padding:20,marginTop:50,backgroundColor:"ghostwhite",borderRadius:20}}>
+        {/* menu items */}
+        {/* logout button */}
+        <TouchableOpacity onPress={()=> nav.navigate("Products")}>
+          <Text style={{fontSize:20,fontWeight:"600"}}>Products</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
