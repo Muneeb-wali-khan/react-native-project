@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Image,
   StatusBar,
+  Text,
 } from 'react-native';
 import React, {useState} from 'react';
 import Home from '../bottom/Home';
