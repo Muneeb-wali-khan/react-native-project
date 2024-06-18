@@ -17,7 +17,7 @@ const Home = () => {
     <View style={styles.container}>
       <CommonHeader
         onclickLeft={() => {
-          navigation.openDrawer
+          navigation.openDrawer()
         }}
       />
 

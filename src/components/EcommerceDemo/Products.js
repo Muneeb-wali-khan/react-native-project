@@ -68,7 +68,7 @@ const Products = () => {
               <View style={{flexDirection: 'row'}}>
                 <Image
                   source={{uri: item.image}}
-                  style={{width: 60, height: 60, borderRadius: 10}}
+                  style={{width: 50, height: 50, borderRadius: 10}}
                 />
                 <Text
                   style={{
