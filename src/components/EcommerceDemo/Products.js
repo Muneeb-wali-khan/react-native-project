@@ -65,7 +65,7 @@ const Products = () => {
                 justifyContent: 'space-between',
                 borderRadius: 10,
               }}>
-              <View style={{flexDirection: 'row'}}>
+              <View style={{flexDirection: 'row',maxWidth:"60%"}}>
                 <Image
                   source={{uri: item.image}}
                   style={{width: 50, height: 50, borderRadius: 10}}
@@ -73,11 +73,12 @@ const Products = () => {
                 <Text
                   style={{
                     fontWeight: '600',
-                    fontSize: 15,
+                    fontSize: 14,
                     padding: 10,
+                    marginRight:15
                   }}>
                   {item.title.length > 20
-                    ? item.title.slice(0, 25) + '...'
+                    ? item.title.slice(0, 20) + '...'
                     : item.title}
                 </Text>
               </View>

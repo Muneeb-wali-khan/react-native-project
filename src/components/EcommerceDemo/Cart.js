@@ -30,7 +30,7 @@ const Cart = () => {
                   justifyContent: 'space-between',
                   borderRadius: 10,
                 }}>
-                <View style={{flexDirection: 'row'}}>
+                <View style={{flexDirection: 'row',maxWidth:"60%"}}>
                   <Image
                     source={{uri: prod.item.image}}
                     style={{width: 60, height: 60, borderRadius: 10}}
@@ -38,11 +38,12 @@ const Cart = () => {
                   <Text
                     style={{
                       fontWeight: '600',
-                      fontSize: 15,
+                      fontSize: 14,
                       padding: 10,
+                      marginRight:15
                     }}>
                     {prod.item.title.length > 20
-                      ? prod.item.title.slice(0, 25) + '...'
+                      ? prod.item.title.slice(0, 20) + '...'
                       : prod.item.title}
                   </Text>
                 </View>

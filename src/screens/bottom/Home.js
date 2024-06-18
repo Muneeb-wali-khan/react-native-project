@@ -10,6 +10,7 @@ import React from 'react';
 import CommonHeader from '../../components/CommonHeader/CommonHeader';
 import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 
 const Home = () => {
   const navigation = useNavigation();
@@ -37,18 +38,18 @@ const Home = () => {
                       }}>
                       <Image
                         blurRadius={7}
-                        style={{height: 50, width: 50, borderRadius: 40}}
+                        style={{height: responsiveWidth(12), width: responsiveWidth(12), borderRadius: 50}}
                         source={require('../../images/user-avatar.256x256.png')}
                       />
                     </TouchableOpacity>
                     <View style={{flexDirection: 'column', paddingLeft: 10}}>
-                      <Text style={{fontWeight: 900, fontSize: 20}}>
+                      <Text style={{fontWeight: 900, fontSize: responsiveFontSize(2.3)}}>
                         Muneeb shah{' '}
                         <Text style={{fontSize: 13, fontWeight: '400'}}>
                           .1st
                         </Text>
                       </Text>
-                      <Text style={{fontWeight: 600, fontSize: 13}}>
+                      <Text style={{fontWeight: 600, fontSize: responsiveFontSize(1.7)}}>
                         Software Engineer | Mobile App Developer | React Native
                       </Text>
                       <Text style={{fontSize: 14, fontWeight: '600'}}>
@@ -134,18 +135,18 @@ const Home = () => {
                       }}>
                       <Image
                         blurRadius={7}
-                        style={{height: 50, width: 50, borderRadius: 40}}
+                        style={{height: responsiveWidth(12), width: responsiveWidth(12), borderRadius: 50}}
                         source={require('../../images/user-avatar.256x256.png')}
                       />
                     </TouchableOpacity>
                     <View style={{flexDirection: 'column', paddingLeft: 10}}>
-                      <Text style={{fontWeight: 900, fontSize: 20}}>
+                      <Text style={{fontWeight: 900, fontSize: responsiveFontSize(2.3)}}>
                         Ali Ahmad{' '}
                         <Text style={{fontSize: 13, fontWeight: '400'}}>
                           .1st
                         </Text>
                       </Text>
-                      <Text style={{fontWeight: 600, fontSize: 13}}>
+                      <Text style={{fontWeight: 600, fontSize: responsiveFontSize(1.7)}}>
                         Data Engineer | Devops Engineer Developer | Aws Solution
                       </Text>
                       <Text style={{fontSize: 14, fontWeight: '600'}}>
@@ -231,18 +232,18 @@ const Home = () => {
                       }}>
                       <Image
                         blurRadius={7}
-                        style={{height: 50, width: 50, borderRadius: 40}}
+                        style={{height: responsiveWidth(12), width: responsiveWidth(12), borderRadius: 50}}
                         source={require('../../images/user-avatar.256x256.png')}
                       />
                     </TouchableOpacity>
                     <View style={{flexDirection: 'column', paddingLeft: 10}}>
-                      <Text style={{fontWeight: 900, fontSize: 20}}>
+                      <Text style={{fontWeight: 900, fontSize: responsiveFontSize(2.3)}}>
                         Wajid Khan{' '}
                         <Text style={{fontSize: 13, fontWeight: '400'}}>
                           .1st
                         </Text>
                       </Text>
-                      <Text style={{fontWeight: 600, fontSize: 13}}>
+                      <Text style={{fontWeight: 600, fontSize: responsiveFontSize(1.7)}}>
                         Microsoft Engineer | data base Developer | Aws Solution
                       </Text>
                       <Text style={{fontSize: 14, fontWeight: '600'}}>
@@ -340,8 +341,8 @@ const styles = StyleSheet.create({
     borderWidth: 0.2,
   },
   topLayerPost: {
-    height: 100,
-    width: Dimensions.get('window').width,
+    height: 120,
+    width: "89%",
     flexDirection: 'row',
     padding: 10,
     paddingLeft:15,

@@ -70,16 +70,16 @@ const styles = StyleSheet.create({
   },
   searchView: {
     width: '60%',
-    height: 45,
+    height: 40,
     marginLeft: 10,
     borderRadius: 10,
   },
   searchIcon: {
-    height: 25,
-    width: 25,
+    height: 22,
+    width: 22,
   },
   MsgBox: {
-    height: 35,
-    width: 35,
+    height: 30,
+    width: 30,
   },
 });

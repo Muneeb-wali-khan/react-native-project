@@ -30,7 +30,7 @@ const Login = () => {
       <View style={{alignItems: 'center', marginTop: 80}}>
         <Image
           source={require('../../images/linkdin-logo.png')}
-          style={{width: '28%', height: '38%'}}
+          style={{width: 100, height: 100}}
         />
       </View>
       <View style={styles.formContainer}>
