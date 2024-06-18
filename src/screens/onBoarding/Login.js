@@ -10,8 +10,6 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-
-
   const handleLogin = () => {
     const emails = ['xyz@gmail.com', 'munaa@gmail.com'];
     const passwords = ['123', '456'];
@@ -51,9 +49,11 @@ const Login = () => {
               secureTextEntry={true}
               onChangeText={text => setPassword(text)}
             />
-            <TouchableOpacity onPress={handleLogin} style={styles.ButtonVeiw}>
-              <Text style={styles.btnText}>Login</Text>
-            </TouchableOpacity>
+            <View style={{width:"100%",justifyContent:"center"}}>
+              <TouchableOpacity onPress={handleLogin} style={styles.ButtonVeiw}>
+                <Text style={styles.btnText}>Login</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </View>
@@ -108,10 +108,11 @@ export const styles = StyleSheet.create({
     borderColor: 'gray',
   },
   ButtonVeiw: {
-    width: 371,
+    width: '85%',
     borderRadius: 10,
     height: 55,
     margin: 12,
+    alignSelf:"center",
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: THEME_COLOR,
